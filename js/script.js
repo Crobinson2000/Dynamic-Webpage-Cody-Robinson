@@ -18,6 +18,7 @@ kickflip.hide();
 grind.hide();
 crash.hide();
 riding.hide();
+clouds.hide();
 
 function updateScore(points) {
     score += points;
@@ -64,6 +65,7 @@ $(document).on("keydown", function (e) {
         riding.show();
         standing.hide();
         startScreen.hide();
+
         interval = setInterval(moveObstaclesContinuously(), 3000);
         // Interval
     
@@ -116,10 +118,10 @@ $(document).on("keydown", function(e) {
     if (e.key === "ArrowRight") {
         var time = setInterval(function(){
             console.log("reset");
-            obstacleType = Math.random() < 0.5 ? "#rail" : "#barrier"
+            obstacleType = Math.random() < 0.5 ? "#rail" : "#barrier";
             $(obstacleType).css("transition", "0s");
             $(obstacleType).css("transform", "translateX(100%)");
             setTimeout(moveObstaclesContinuously, 500 )
-        },4000)
+        },3000)
     }
 });
