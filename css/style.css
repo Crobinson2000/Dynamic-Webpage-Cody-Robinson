@@ -45,12 +45,12 @@ img {
 }
 
 #rail {
-    transform: translateX(500%);
-    transition: 7s;
+    transform: translateX(100%);
+    /* transition: 7s; */
     
 }
 
 #barrier {
     transform: translateX(100%);
-    transition: 7s;
+    /* transition: 7s; */
 }

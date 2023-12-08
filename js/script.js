@@ -6,6 +6,7 @@ var grind = $("#grind");
 var crash = $("#crash");
 var riding = $("#riding");
 var standing = $("#standing");
+var clouds = $("#clouds");
 var score = 0;
 var startScreen = $("#start-screen");
 var grindSound = document.getElementById("grindSound");
@@ -100,16 +101,25 @@ $(document).on("keyup", function (e) {
     }
 });
 
-
+var obstacleType;
 function moveObstaclesContinuously() {
-    var obstacleType = Math.random() < 0.5 ? "#rail" : "#barrier";
-    $("#rail, #barrier" + obstacleType).css("transform", "translateX(-100%)");
+    console.log("moveObstaclesContinuously");
 
-    //setInterval (moveObstaclesContinuously, 3000); // Change obstacles every 3 seconds
+    
+
+    $(obstacleType).css("transition", "7s");
+    $(obstacleType).css("transform", "translateX(-100%)");
+   
 }
 
 $(document).on("keydown", function(e) {
     if (e.key === "ArrowRight") {
-        moveObstaclesContinuously();
+        var time = setInterval(function(){
+            console.log("reset");
+            obstacleType = Math.random() < 0.5 ? "#rail" : "#barrier"
+            $(obstacleType).css("transition", "0s");
+            $(obstacleType).css("transform", "translateX(100%)");
+            setTimeout(moveObstaclesContinuously, 500 )
+        },4000)
     }
 });
